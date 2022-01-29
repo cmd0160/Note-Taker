@@ -19,6 +19,6 @@ app.post("/api/notes", (req, res) => {
     res.json(req.body);
   });
 
-app.listen(3001, () => {
-  console.log(`API server now on port 3001!`);
-});
+  app.listen(PORT, () => {
+    console.log(`API server now on port ${PORT}!`);
+  });
