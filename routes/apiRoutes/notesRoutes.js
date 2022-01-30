@@ -1,13 +1,17 @@
+const router = require("express").Router();
+const { createNewNote } = require("../../lib/notes");
+const db = require("../../db/db");
+const { nanoid } = require("nanoid");
 
+router.get("/notes", (req, res) => {
+  res.json(db);
+});
 
+router.post("/notes", (req, res) => {
+  req.body.id = nanoid();
 
+  const note = createNewNote(req.body, db);
+  res.json(note);
+});
 
-app.get("/notes", (req, res) => {
-    res.json(notes);
-  });
-  
-  app.post("/notes", (req, res) => {
-      // req.body is where our incoming content will be
-      console.log(req.body);
-      res.json(req.body);
-    });
+module.exports = router;
