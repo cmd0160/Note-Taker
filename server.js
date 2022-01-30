@@ -11,15 +11,7 @@ app.use(express.urlencoded({ extended: true }));
 // parse incoming JSON data
 app.use(express.json());
 
-app.get("/api/notes", (req, res) => {
-  res.json(notes);
-});
 
-app.post("/api/notes", (req, res) => {
-    // req.body is where our incoming content will be
-    console.log(req.body);
-    res.json(req.body);
-  });
 
   app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, './public/index.html'));
